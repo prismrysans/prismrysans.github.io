@@ -1,4 +1,4 @@
-# Hi, I'm Shivansh Nath 👋
+# Hi, I'm PrismRysans (Shivansh Nath) 👋
 **Self-taught Cyber-Security & Tech Enthusiast**
 
 A self-taught technologist driven by curiosity, specializing in Linux environments, system deployments, and network fundamentals.
