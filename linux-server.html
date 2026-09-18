@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Linux Web Server - Shivansh Nath</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			html, body { height: auto !important; min-height: 100vh; overflow-x: hidden !important; }
+			.content-section {
+				background: rgba(0, 0, 0, 0.75);
+				padding: 2.5em 3em;
+				border-radius: 10px;
+				margin: 2em auto;
+				width: 90%;
+				max-width: 850px;
+				box-sizing: border-box;
+				text-align: left;
+				color: rgba(255, 255, 255, 0.85);
+				line-height: 1.75;
+			}
+			.content-section h2 { color: #ffffff; border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 10px; margin-bottom: 20px;}
+			.content-section h3 { color: #ffffff; margin-top: 1.5em; }
+			.content-section p, .content-section li { font-size: 0.95em; line-height: 1.6; }
+			.content-section hr { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.2); margin: 2em 0; }
+			.project-link { color: #4da6ff; text-decoration: none; font-weight: bold; font-size: 0.95em; display: inline-block; margin-bottom: 1.5em; }
+			.project-link:hover { text-decoration: underline; color: #80c1ff; }
+
+			/* Terminal Code Block Styling to make it visually appealing */
+			pre {
+				background: #1e1e1e;
+				padding: 12px 15px;
+				border-radius: 5px;
+				overflow-x: auto;
+				border: 1px solid #333;
+				margin: 10px 0 20px 0;
+			}
+			code {
+				font-family: Consolas, Monaco, 'Andale Mono', monospace;
+				color: #a6e22e; /* Terminal Green */
+				font-size: 0.9em;
+			}
+
+			#footer {
+				position: relative !important;
+				bottom: auto !important;
+				left: auto !important;
+				width: 100% !important;
+				text-align: center;
+				padding: 2em 1em 3em 1em !important;
+			}
+			#footer .icons { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 0; margin-bottom: 1em; }
+			#footer .icons li { padding: 0; }
+
+			@media screen and (max-width: 768px) {
+				body { padding: 0 15px !important; }
+				#header { padding-top: 2em !important; }
+				.content-section { padding: 1.5em 1em; margin: 1em auto 2em auto; width: 100%; }
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<h1>Project Notes</h1>
+				<p>Linux Terminal & Local Web Hosting</p>
+			</header>
+
+		<!-- Main Project Content -->
+			<div class="content-section">
+				
+				<a href="index.html" class="project-link">&larr; Back to Main Portfolio</a>
+
+				<section id="project-details">
+					<h2>Hosting a Local Web Server on Linux</h2>
+					
+					<h3>The Goal</h3>
+					<p>I wanted to see exactly how a website works under the hood. Instead of relying on a drag-and-drop website builder, I used the Linux terminal to turn my computer into a fully functional local web server.</p>
+
+					<hr>
+
+					<h3>The Step-by-Step Process</h3>
+					
+					<p><strong>Step 1: Installing the Web Server</strong><br />
+					Instead of downloading a graphical installer, I used the Linux package manager. These two commands downloaded Apache and started the web service running silently in the background.</p>
+<pre><code>sudo apt update
+sudo apt install apache2</code></pre>
+
+					<p><strong>Step 2: Finding Where the Website "Lives"</strong><br />
+					Linux automatically creates a specific directory for hosting web files. I used the terminal to navigate to that folder, removed the default placeholder, and created a new <code>index.html</code> file to hold my own custom text.</p>
+<pre><code>cd /var/www/html
+sudo nano index.html</code></pre>
+
+					<p><strong>Step 3: Going Live on My Network</strong><br />
+					To actually view the website from another device, I needed to know where to point my browser. I used the network command to find my computer's local IP address.</p>
+<pre><code>ip a</code></pre>
+					<p>I grabbed my phone, connected it to the same home Wi-Fi network, and typed that IP address (e.g., <code>192.168.1.15</code>) into my browser.</p>
+
+					<hr>
+
+					<h3>What I Learned</h3>
+					<p>My custom HTML page loaded instantly on my phone. This project completely demystified the internet for me. It showed me firsthand how simple command-line instructions translate into a live, running service, and how IP addresses act as the bridge between different devices on the same network.</p>
+				</section>
+				
+				<hr>
+				<a href="index.html" class="project-link">&larr; Back to Main Portfolio</a>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/shivanshnath" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/prismrysans" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="mailto:shivanshnath@protonmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Shivansh Nath. All rights reserved.</li>
+				</ul>
+			</footer>
+
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
