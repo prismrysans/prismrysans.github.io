@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Shivansh Nath - Portfolio</title>
+		<title>PrismRysans (Shivansh Nath) - Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -22,24 +22,26 @@
 				margin: 4em auto 2em auto !important;
 				width: 90% !important;
 				max-width: 850px !important;
-				text-align: center !important;
-				padding: 0 15px !important;
+				text-align: left !important; /* Changed to left */
+				padding: 0 3em !important; /* Matches the content box padding perfectly */
 				box-sizing: border-box !important;
-				display: block !important; /* Breaks the template's rigid flexbox */
+				display: block !important;
 			}
 			#header h1 {
 				font-size: clamp(2em, 5vw, 3.5em) !important; /* Scales dynamically */
 				line-height: 1.2 !important;
 				margin-bottom: 0.2em !important;
-				white-space: normal !important; /* Forces text to wrap */
+				white-space: normal !important; 
 				word-wrap: break-word !important;
+				text-align: left !important;
 			}
 			#header p {
 				font-size: clamp(1em, 2vw, 1.25em) !important; /* Scales dynamically */
 				line-height: 1.6 !important;
-				white-space: normal !important; /* Forces text to wrap */
+				white-space: normal !important; 
 				word-wrap: break-word !important;
-				margin: 0 auto !important;
+				margin: 0 !important; /* Removed auto centering */
+				text-align: left !important;
 			}
 
 			/* Standard Desktop & Tablet Styling */
@@ -50,7 +52,7 @@
 				margin: 0 auto 2em auto;
 				width: 90%;
 				max-width: 850px;
-				box-sizing: border-box; /* Prevents padding from breaking width */
+				box-sizing: border-box;
 				text-align: left;
 				color: rgba(255, 255, 255, 0.85);
 				line-height: 1.75;
@@ -91,6 +93,7 @@
 				}
 				#header {
 					margin: 2em auto 1.5em auto !important;
+					padding: 0 1em !important; /* Matches mobile content box padding */
 				}
 				#header h1 { font-size: 2.2em !important; }
 				#header p { font-size: 1.05em !important; }
