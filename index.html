@@ -6,14 +6,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
+			/* Override the template's single-screen lock */
+			html, body {
+				height: auto !important;
+				min-height: 100vh;
+				overflow-x: hidden !important; 
+			}
+
 			/* Standard Desktop & Tablet Styling */
 			.content-section {
-				background: rgba(0, 0, 0, 0.6);
-				padding: 2.5em;
+				background: rgba(0, 0, 0, 0.75);
+				padding: 2.5em 3em;
 				border-radius: 10px;
 				margin: 2em auto;
 				width: 90%;
 				max-width: 850px;
+				box-sizing: border-box; /* Prevents padding from breaking width */
 				text-align: left;
 				color: rgba(255, 255, 255, 0.85);
 				line-height: 1.75;
@@ -26,15 +34,22 @@
 			.project-link { color: #4da6ff; text-decoration: none; font-weight: bold; font-size: 0.9em; display: inline-block; margin-top: 0.5em; }
 			.project-link:hover { text-decoration: underline; color: #80c1ff; }
 
-			/* Mobile Responsiveness Auto-Adjustment */
-			@media (max-width: 768px) {
-				.content-section {
-					padding: 1.5em;
-					margin: 1em auto;
-					width: 95%;
+			/* Strict Mobile Responsiveness Override */
+			@media screen and (max-width: 768px) {
+				body {
+					padding: 0 15px !important; /* Gives the whole page breathing room on phones */
 				}
-				.content-section h2 { font-size: 1.5em; }
-				.content-section h3 { font-size: 1.2em; }
+				#header {
+					padding-top: 2em !important;
+				}
+				.content-section {
+					padding: 1.5em 1em;
+					margin: 1em auto 2em auto;
+					width: 100%;
+				}
+				.content-section h2 { font-size: 1.4em; }
+				.content-section h3 { font-size: 1.15em; line-height: 1.4; }
+				.content-section p, .content-section li { font-size: 0.95em; line-height: 1.6; }
 			}
 		</style>
 	</head>
