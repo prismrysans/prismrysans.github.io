@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* Override the layout's single-screen lock */
+			/* Override the template's single-screen lock */
 			html, body {
 				height: auto !important;
 				min-height: 100vh;
@@ -34,6 +34,27 @@
 			.project-link { color: #4da6ff; text-decoration: none; font-weight: bold; font-size: 0.9em; display: inline-block; margin-top: 0.5em; }
 			.project-link:hover { text-decoration: underline; color: #80c1ff; }
 
+			/* Footer Positioning Fix */
+			#footer {
+				position: relative !important;
+				bottom: auto !important;
+				left: auto !important;
+				width: 100% !important;
+				text-align: center;
+				padding: 2em 1em 3em 1em !important;
+			}
+			#footer .icons {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 20px;
+				padding: 0;
+				margin-bottom: 1em;
+			}
+			#footer .icons li {
+				padding: 0;
+			}
+
 			/* Strict Mobile Responsiveness Override */
 			@media screen and (max-width: 768px) {
 				body {
@@ -57,7 +78,7 @@
 
 		<!-- Header -->
 			<header id="header">
-				<h1>Shivansh Nath</h1>
+				<h1>PrismRysans (Shivansh Nath)</h1>
 				<p>Self-taught Cyber-Security & Tech Enthusiast<br />
 				A self-taught technologist driven by curiosity, specializing in Linux environments, system deployments, and network fundamentals.</p>
 			</header>
@@ -114,8 +135,7 @@
 		<!-- Footer -->
 			<footer id="footer">
 				<ul class="icons">
-					<!-- Replace the "#" with your actual profile links -->
-					<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://www.linkedin.com/in/shivanshnath" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 					<li><a href="https://github.com/prismrysans" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 					<li><a href="mailto:shivanshnath@protonmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
