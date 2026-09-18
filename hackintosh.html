@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Hackintosh Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* Override the template's single-screen lock */
+			html, body {
+				height: auto !important;
+				min-height: 100vh;
+				overflow-x: hidden !important; 
+			}
+
+			/* Standard Desktop & Tablet Styling */
+			.content-section {
+				background: rgba(0, 0, 0, 0.75);
+				padding: 2.5em 3em;
+				border-radius: 10px;
+				margin: 2em auto;
+				width: 90%;
+				max-width: 850px;
+				box-sizing: border-box;
+				text-align: left;
+				color: rgba(255, 255, 255, 0.85);
+				line-height: 1.75;
+			}
+			.content-section h2 { color: #ffffff; border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 10px; margin-bottom: 20px;}
+			.content-section h3 { color: #ffffff; margin-top: 1.5em; }
+			.content-section ul { padding-left: 1.5em; margin-bottom: 1.5em; }
+			.content-section li { margin-bottom: 0.5em; }
+			.content-section hr { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.2); margin: 2em 0; }
+			.project-link { color: #4da6ff; text-decoration: none; font-weight: bold; font-size: 0.95em; display: inline-block; margin-bottom: 1.5em; }
+			.project-link:hover { text-decoration: underline; color: #80c1ff; }
+
+			/* Footer Positioning Fix */
+			#footer {
+				position: relative !important;
+				bottom: auto !important;
+				left: auto !important;
+				width: 100% !important;
+				text-align: center;
+				padding: 2em 1em 3em 1em !important;
+			}
+			#footer .icons {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 20px;
+				padding: 0;
+				margin-bottom: 1em;
+			}
+			#footer .icons li {
+				padding: 0;
+			}
+
+			/* Strict Mobile Responsiveness Override */
+			@media screen and (max-width: 768px) {
+				body {
+					padding: 0 15px !important;
+				}
+				#header {
+					padding-top: 2em !important;
+				}
+				.content-section {
+					padding: 1.5em 1em;
+					margin: 1em auto 2em auto;
+					width: 100%;
+				}
+				.content-section h2 { font-size: 1.4em; }
+				.content-section h3 { font-size: 1.15em; line-height: 1.4; }
+				.content-section p, .content-section li { font-size: 0.95em; line-height: 1.6; }
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<h1>Project Notes</h1>
+				<p>Systems Administration & Hardware Troubleshooting</p>
+			</header>
+
+		<!-- Main Project Content -->
+			<div class="content-section">
+				
+				<a href="index.html" class="project-link">&larr; Back to Main Portfolio</a>
+
+				<section id="project-details">
+					<h2>How I Built a Hackintosh (Running macOS on Custom PC Hardware)</h2>
+					
+					<h3>The Goal</h3>
+					<p>To take a standard desktop PC meant for Windows and successfully install Apple's macOS on it, making it run natively just like a real Mac.</p>
+
+					<h3>The "Ingredients" (What I Used)</h3>
+					<ul>
+						<li><strong>Hardware:</strong> A standard PC desktop (Intel CPU, compatible motherboard, and graphics card).</li>
+						<li><strong>Software Tools:</strong> A macOS installer file, a USB drive, and bootloaders like <strong>Chimera</strong> and <strong>Clover</strong> (special tools that trick macOS into thinking it is running on a real Apple computer).</li>
+						<li><strong>Post-Installation Tools:</strong> <strong>MultiBeast</strong> and <strong>KextBeast</strong> to handle drivers.</li>
+					</ul>
+
+					<hr>
+
+					<h3>Step-by-Step Process</h3>
+					
+					<p><strong>Step 1: Preparing the PC (BIOS Settings)</strong><br />
+					Before installing anything, I had to configure the motherboard's basic settings (BIOS). Apple computers expect hardware to act a certain way, so I turned off Windows-specific features, changed the storage mode to AHCI, and enabled settings that let the operating system talk directly to the hardware.</p>
+
+					<p><strong>Step 2: Creating the Bootable USB</strong><br />
+					I downloaded the macOS installation files onto a USB drive. Next, I installed the <strong>Clover Bootloader</strong> (and in earlier builds, <strong>Chimera</strong>) onto the USB. Think of the bootloader as a translator—it sits between the PC's hardware and the Apple software, translating instructions so they understand each other during startup.</p>
+
+					<p><strong>Step 3: The Installation Phase</strong><br />
+					I plugged in the USB, booted up the PC, and typed in specific "boot flags" (like <code>-v</code> for verbose mode) to watch the code run and catch any errors. From there, I reached the Apple installation screen, formatted my PC's hard drive, and let macOS install itself.</p>
+
+					<p><strong>Step 4: Post-Installation Fixes (Making Everything Work)</strong><br />
+					After the first successful boot, the screen worked, but the system couldn't boot on its own without the USB, and things like Wi-Fi or audio were broken.</p>
+					<ul>
+						<li>I used <strong>MultiBeast</strong> to install a permanent bootloader directly onto the computer's hard drive.</li>
+						<li>For specific hardware pieces that still weren't working, I used <strong>KextBeast</strong> to manually inject custom "kexts" (Apple's version of drivers) to wake up the sound card and network adapters.</li>
+					</ul>
+
+					<hr>
+
+					<h3>The Biggest Challenge</h3>
+					<p><strong>The Issue:</strong> During the boot process, the computer would sometimes freeze at the Apple logo or reboot endlessly in a loop (a kernel panic).</p>
+					<p><strong>The Fix:</strong> Instead of giving up, I booted into verbose mode (which displays the raw system text instead of the Apple logo) to see exactly where the code was getting stuck. I researched the error, adjusted my bootloader settings, and tested different kext files until the system booted perfectly.</p>
+
+					<h3>What I Learned</h3>
+					<p>This project taught me how computers actually start up before an operating system even loads. It improved my patience, my ability to read technical logs, and my hardware troubleshooting skills long before I knew what "System Administration" was.</p>
+				</section>
+				
+				<hr>
+				<a href="index.html" class="project-link">&larr; Back to Main Portfolio</a>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/shivanshnath" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/prismrysans" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="mailto:shivanshnath@protonmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Shivansh Nath. All rights reserved.</li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
