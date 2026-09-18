@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Python Network Scanner - Shivansh Nath</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			html, body { height: auto !important; min-height: 100vh; overflow-x: hidden !important; }
+			.content-section {
+				background: rgba(0, 0, 0, 0.75);
+				padding: 2.5em 3em;
+				border-radius: 10px;
+				margin: 2em auto;
+				width: 90%;
+				max-width: 850px;
+				box-sizing: border-box;
+				text-align: left;
+				color: rgba(255, 255, 255, 0.85);
+				line-height: 1.75;
+			}
+			.content-section h2 { color: #ffffff; border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 10px; margin-bottom: 20px;}
+			.content-section h3 { color: #ffffff; margin-top: 1.5em; }
+			.content-section p, .content-section li { font-size: 0.95em; line-height: 1.6; }
+			.content-section hr { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.2); margin: 2em 0; }
+			.project-link { color: #4da6ff; text-decoration: none; font-weight: bold; font-size: 0.95em; display: inline-block; margin-bottom: 1.5em; }
+			.project-link:hover { text-decoration: underline; color: #80c1ff; }
+			
+			/* Code block styling */
+			pre {
+				background: #1e1e1e;
+				padding: 15px;
+				border-radius: 5px;
+				overflow-x: auto;
+				border: 1px solid #333;
+			}
+			code {
+				font-family: Consolas, Monaco, 'Andale Mono', monospace;
+				color: #a6e22e;
+				font-size: 0.9em;
+			}
+
+			#footer {
+				position: relative !important;
+				bottom: auto !important;
+				left: auto !important;
+				width: 100% !important;
+				text-align: center;
+				padding: 2em 1em 3em 1em !important;
+			}
+			#footer .icons { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 0; margin-bottom: 1em; }
+			#footer .icons li { padding: 0; }
+
+			@media screen and (max-width: 768px) {
+				body { padding: 0 15px !important; }
+				#header { padding-top: 2em !important; }
+				.content-section { padding: 1.5em 1em; margin: 1em auto 2em auto; width: 100%; }
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<h1>Project Notes</h1>
+				<p>Python Scripting & Cybersecurity Fundamentals</p>
+			</header>
+
+		<!-- Main Project Content -->
+			<div class="content-section">
+				
+				<a href="index.html" class="project-link">&larr; Back to Main Portfolio</a>
+
+				<section id="project-details">
+					<h2>Simple Python Network Scanner</h2>
+					
+					<h3>The Goal</h3>
+					<p>I was curious about how computers find open "doors" (ports) on a network, so I decided to write a very basic Python script to knock on those doors and see who answers.</p>
+
+					<h3>The Code</h3>
+					<p>I didn't use any complicated external tools—just a simple loop using Python's built-in <code>socket</code> library.</p>
+					
+<pre><code>import socket
+
+target = '127.0.0.1' # Checking my own machine
+
+print("Scanning for open ports...")
+
+for port in range(1, 101):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(0.5) 
+    
+    if s.connect_ex((target, port)) == 0:
+        print(f"Port {port} is OPEN")
+        
+    s.close()
+
+print("Scan complete.")</code></pre>
+
+					<h3>How It Works</h3>
+					<ul>
+						<li>The script picks an IP address and a list of port numbers (1 through 100).</li>
+						<li>It uses <code>connect_ex()</code> to literally try and connect to each port, waiting half a second for a response.</li>
+						<li>If the connection is successful (which returns a <code>0</code>), the script prints out that the port is open and listening.</li>
+					</ul>
+
+					<h3>What I Learned</h3>
+					<p>This quick experiment showed me how easy it is to interact with a network using just a few lines of code. It gave me a practical, hands-on understanding of how IP addresses and network ports actually work together behind the scenes.</p>
+				</section>
+				
+				<hr>
+				<a href="index.html" class="project-link">&larr; Back to Main Portfolio</a>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/shivanshnath" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/prismrysans" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="mailto:shivanshnath@protonmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Shivansh Nath. All rights reserved.</li>
+				</ul>
+			</footer>
+
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
